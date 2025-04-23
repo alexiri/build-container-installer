@@ -1,6 +1,6 @@
-FROM fedora:40
+FROM almalinux:10-kitten
 
-ARG VERSION=39
+ARG VERSION=10
 
 ENV ARCH="x86_64"
 ENV IMAGE_NAME="base"

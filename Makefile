@@ -5,7 +5,7 @@ include Makefile.inputs
 
 export SHELL := /bin/sh
 # Cache
-export DNF_CACHE := 
+export DNF_CACHE :=
 export PACKAGE_MANAGER := dnf
 
 # Functions
@@ -26,7 +26,7 @@ export install_pkg
 ## Formatting = _UPPERCASE
 _IMAGE_REPO_ESCAPED        := $(subst /,\/,$(IMAGE_REPO))
 _IMAGE_REPO_DOUBLE_ESCAPED := $(subst \,\\\,$(_IMAGE_REPO_ESCAPED))
-_LORAX_ARGS                := 
+_LORAX_ARGS                :=
 _LORAX_TEMPLATES           := $(call get_templates,install)
 _REPO_FILES                := $(subst /etc/yum.repos.d,repos,$(REPOS))
 _TEMP_DIR                  := $(shell mktemp -d)
@@ -132,7 +132,7 @@ clean:
 
 .PHONY: install-deps
 install-deps:
-	$(install_pkg) lorax xorriso coreutils gettext syslinux-nonlinux
+	$(install_pkg) --allowerasing lorax xorriso coreutils gettext syslinux-nonlinux
 	$(foreach DIR,$(filter-out test,$(_SUBDIRS)),$(MAKE) -w -C $(DIR) install-deps;)
 
 
